@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel Brocco de Oliveira</title>
+</head>
+<body>
+    <h1 id="clockDisplay" 
+    style="background: black; color: rgb(102, 61, 208); padding: 20px; margin-top: 300;"></h1>
+
+    <script>
+        function adjustTime(value) {
+            return value < 10 ? "0" + value : "" + value;
+        }
+
+        const clockDisplay = document.querySelector("#clockDisplay");
+
+        const clockInterval = setInterval(function() {
+            const actualDate = new Date();
+            const hour = adjustTime(actualDate.getHours());
+            const minute = adjustTime(actualDate.getMinutes());
+            const second = adjustTime(actualDate.getSeconds()); 
+
+            clockDisplay.textContent = hour + ":" + minute + ":" + second;
+        }, 1000);
+          
+        /*  parar a cada 5 segundos
+        setTimeout(function(){
+            clearInterval(clockInterval);
+        }, 5000);
+        */
+
+    </script>
+</body>
+</html>
